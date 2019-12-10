@@ -30,9 +30,12 @@ public abstract class Lazadogep implements Urhajo{
 
     @Override
     public boolean legyorsuljaE(Urhajo urhajo) {
-        if (this.speed > urhajo.milyenGyors() && ((Lazadogep)urhajo).canBreakDown)
-        {return false;}
-        else{return false;}
+        if (urhajo instanceof MilleniumFalcon && this.speed > (((MilleniumFalcon)urhajo).milyenGyors())*2) { return true;}
+        else {
+            if (this.speed > urhajo.milyenGyors() && ((Lazadogep)urhajo).canBreakDown)
+                {return true;}
+            else{return false;}
+        }
     }
 
     @Override
@@ -42,6 +45,11 @@ public abstract class Lazadogep implements Urhajo{
 }
 
 /*
+
+        A MilleniumFalcon objektumot csak akkor tudja legyőzni, ha gyorsasága kétszer nagyobb.
+        – Az osztálynak legyen továbbá getter és setter metódusa az adattagjaihoz, és legyen
+        szöveges formára alakítható, kiírva az adattagok értékét.
+
 
     Írj egy LazadoGep absztrakt osztályt, ami implementálja az Urhajo interfészt.
         – Az osztály a következő private láthatóságú adattagokkal rendelkezik: egy lebegőpontos sebesség,
