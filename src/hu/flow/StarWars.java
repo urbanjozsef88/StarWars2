@@ -1,6 +1,6 @@
 package hu.flow;
 
-public class Main {
+public class StarWars {
 
     public static void main(String[] args) {
 	// write your code here
