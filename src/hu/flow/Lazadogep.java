@@ -1,6 +1,6 @@
 package hu.flow;
 
-public abstract class Lazadogep {
+public abstract class Lazadogep implements Urhajo{
 
     private double speed;
     private boolean canBreakDown;
@@ -10,8 +10,35 @@ public abstract class Lazadogep {
         this.canBreakDown = canBreakDown;
     }
 
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
+    public boolean isCanBreakDown() {
+        return canBreakDown;
+    }
+
+    public void setCanBreakDown(boolean canBreakDown) {
+        this.canBreakDown = canBreakDown;
+    }
+
     public abstract boolean elkapjaAVonosugar();
 
+    @Override
+    public boolean legyorsuljaE(Urhajo urhajo) {
+        if (this.speed > urhajo.milyenGyors() && ((Lazadogep)urhajo).canBreakDown)
+        {return false;}
+        else{return false;}
+    }
+
+    @Override
+    public double milyenGyors() {
+        return this.speed;
+    }
 }
 
 /*
