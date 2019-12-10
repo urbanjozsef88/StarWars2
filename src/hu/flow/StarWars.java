@@ -48,20 +48,13 @@ public class StarWars {
         vissza. Valósítsd meg továbbá az interfész metódusait. A gyorsaság lekérdezésekor
         add vissza a LazadoGep sebességét. Egy LazadoGep egy másik LazadoGep objektumot akkor tud legyorsulni,
         ha az meghibásodhat, és a gyorsasága kisebb, mint az övé.
+
         A MilleniumFalcon objektumot csak akkor tudja legyőzni, ha gyorsasága kétszer nagyobb.
         – Az osztálynak legyen továbbá getter és setter metódusa az adattagjaihoz, és legyen
         szöveges formára alakítható, kiírva az adattagok értékét.
 
 
-        • Írj egy XWing osztályt, ami a LazadoGep leszármazottja, és megvalósítja az Hiperhajtomu interfészt.
-        – Az osztálynak egy default konstruktora legyen, ami beállítja az X-Wing tulajdonságait.
-         Az X-Wing sebessége 150, és meghibásodhat.
-        – Ha az X-Wing hiperugrást végez, akkor sebessége egy 0-100 közötti véletlenszerű
-         lebegőpontos számmal nő.
-        – Az X-Wing et akkor kapja el a vonósugár, ha meghibásodhat, és sebessége kisebb,
-        mint 10000.
-        – Az osztály legyen továbbá szöveges formára alakítható. Az adattagok értékein kívül
-        írja ki azt is, hogy egy X-Wingről van szó.
+
         • Írj egy MilleniumFalcon osztályt, ami implementálja az Urhajo és Hiperhajtomu interfészeket.
         – Az osztálynak legyen egy lebegőpontos tapasztalat adattagja.
         – Az osztály rendelkezzen egy default konstruktorral, ami 100-ra állítja az adattag értékét.
@@ -71,6 +64,8 @@ public class StarWars {
         Falcon hiperugrást végez, akkor tapasztalata 500-al nő.
         – Az osztály legyen szöveges formára alakítható, ami kiírja, hogy a Millenium Falconról
         van szó, és megadja a tapasztalatát.
+
+
         • Írj egy StarWars nevű futtatható osztályt. Az osztály rendelkezzen egy urhajok statikus függvénnyel,
          ami egy fájl elérési útját várja paraméterül, visszatérése pedig void. A
         metódus feladata, hogy a fájlból beolvasott sorokat feldolgozza, és létrehozzon belőlük
