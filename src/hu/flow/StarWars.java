@@ -1,11 +1,34 @@
 package hu.flow;
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class StarWars {
 
-    public static void main(String[] args) {
-	// write your code here
+    public static void main(String[] args) throws IOException {
+	    StarWars.urhajok("/home/moldori/java/12-10_urhajo/StarWars2/src/hu/flow/urhajok.txt");
+
+
+    }
+
+    public static void urhajok(String path) throws IOException {
+        File file = new File(path);
+        FileReader fileReader = new FileReader(file);
+        BufferedReader reader = new BufferedReader(fileReader);
+        String line = reader.readLine();
+        while (line != null) {
+            List<String> list= new ArrayList<>();
+            list = Arrays.asList(line.split(" ", 2));
+            if(list.get(0) == )
+            line = reader.readLine();
+        }
+        reader.close();
     }
 }
+
+
 
 
 
