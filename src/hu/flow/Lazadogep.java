@@ -30,13 +30,11 @@ public abstract class Lazadogep implements Urhajo{
 
     @Override
     public boolean legyorsuljaE(Urhajo urhajo) {
-        if (urhajo instanceof MilleniumFalcon && this.speed > (((MilleniumFalcon)urhajo).milyenGyors())*2) { return true;}
-        else {
             if (this.speed > urhajo.milyenGyors() && ((Lazadogep)urhajo).canBreakDown)
                 {return true;}
             else{return false;}
         }
-    }
+
 
     @Override
     public double milyenGyors() {

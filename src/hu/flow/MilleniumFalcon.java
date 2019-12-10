@@ -29,8 +29,7 @@ public class MilleniumFalcon implements Urhajo,Hiperhajtomu {
 
     @Override
     public String toString() {
-        return "MilleniumFalcon{" +
-                "tapasztalat=" + tapasztalat +
-                '}';
+        return "MilleniumFalcon" +
+                " speed=" + milyenGyors();
     }
 }

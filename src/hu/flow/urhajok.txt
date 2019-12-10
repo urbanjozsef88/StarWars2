@@ -1,2 +1,10 @@
 XWing 4
 MilleniumFalcon 18
+MilleniumFalcon 2
+XWing 4
+XWing 8
+MilleniumFalcon 4
+XWing 9
+XWing 10
+MilleniumFalcon 5
+

@@ -24,7 +24,7 @@ public class XWing extends Lazadogep implements Hiperhajtomu{
 
     @Override
     public String toString() {
-        return "XWing" + "speed= " + this.getSpeed();
+        return "XWing" + " speed= " + this.getSpeed();
     }
 }
 
