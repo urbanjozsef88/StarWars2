@@ -7,9 +7,14 @@ import java.util.List;
 
 public class StarWars {
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
+        try {
             StarWars.urhajok("src/hu/flow/urhajok.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Hiba az adatok beolvasás közben.");
+        }
 
 
         for (Urhajo i: hangar) {System.out.println(i);}
@@ -18,54 +23,41 @@ public class StarWars {
 
     public static List<Urhajo> hangar = new ArrayList<>();
 
-    public static void urhajok(String path) {
+    public static void urhajok(String path) throws IOException {
 
         File file = new File(path);
         FileReader fileReader = null;
-        try {
-            fileReader = new FileReader(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        fileReader = new FileReader(file);
         BufferedReader reader = new BufferedReader(fileReader);
+        String line = reader.readLine();
+        int counter = 0;
 
-
-        String line = null;
-        try {
-            line = reader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         while (line != null) {
+            counter++;
             List<String> list;
             list = Arrays.asList(line.split(" ", 2));
-            if (list.get(0).equals("MilleniumFalcon")) {
-                MilleniumFalcon first = new MilleniumFalcon();
-
-                for (int i = 0; i < Integer.parseInt(list.get(1)); i++) {
-                    first.hiperUgras();
-                }
-                hangar.add(first);
-            }
-
-            if (list.get(0).equals("XWing")) {
-                XWing second = new XWing();
-                for (int i = 0; i < Integer.parseInt(list.get(1)); i++) {
-                    second.hiperUgras();
-                }
-                hangar.add(second);
-
-            }
             try {
-                line = reader.readLine();
-            } catch (IOException e) {
+                if (list.get(0).equals("MilleniumFalcon")) {
+                    MilleniumFalcon first = new MilleniumFalcon();
+
+                    for (int i = 0; i < Integer.parseInt(list.get(1)); i++) {
+                        first.hiperUgras();
+                    }
+                    hangar.add(first);
+                }else if (list.get(0).equals("XWing")) {
+                    XWing second = new XWing();
+                    for (int i = 0; i < Integer.parseInt(list.get(1)); i++) {
+                        second.hiperUgras();
+                    }
+                    hangar.add(second);
+                }else{
+                    throw new HulyeVagyException("nem megfelelo adatok a text " + counter + ".-dik sorában");
+                }
+            } catch (HulyeVagyException e) {
                 e.printStackTrace();
             }
-        }
-        try {
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+                line = reader.readLine();
+
         }
     }
 
