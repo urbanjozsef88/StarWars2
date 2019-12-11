@@ -29,24 +29,28 @@ public class StarWars {
         while (line != null) {
             List<String> list;
             list = Arrays.asList(line.split(" ", 2));
-            if (list.get(0).equals("MilleniumFalcon")) {
-                MilleniumFalcon first = new MilleniumFalcon();
+            try {
+                if (list.get(0).equals("MilleniumFalcon")) {
+                    MilleniumFalcon first = new MilleniumFalcon();
 
-                for (int i = 0; i < Integer.parseInt(list.get(1)); i++) {
-                    first.hiperUgras();
+                    for (int i = 0; i < Integer.parseInt(list.get(1)); i++) {
+                        first.hiperUgras();
+                    }
+                    hangar.add(first);
+                }else if (list.get(0).equals("XWing")) {
+                    XWing second = new XWing();
+                    for (int i = 0; i < Integer.parseInt(list.get(1)); i++) {
+                        second.hiperUgras();
+                    }
+                    hangar.add(second);
+                }else{
+                    throw new HulyeVagyException("hulyeseget irtal a textbe");
                 }
-                hangar.add(first);
+            } catch (HulyeVagyException e) {
+                e.printStackTrace();
             }
+                line = reader.readLine();
 
-            if (list.get(0).equals("XWing")) {
-                XWing second = new XWing();
-                for (int i = 0; i < Integer.parseInt(list.get(1)); i++) {
-                    second.hiperUgras();
-                }
-                hangar.add(second);
-
-            }
-            line = reader.readLine();
         }
         reader.close();
     }
