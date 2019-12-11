@@ -7,25 +7,35 @@ import java.util.List;
 
 public class StarWars {
 
-    public static void main(String[] args) throws IOException {
-        StarWars.urhajok("src/hu/flow/urhajok.txt");
-        for (Urhajo i: hangar
-             ) {
-            System.out.println(i);
+    public static void main(String[] args) {
 
-        }
+            StarWars.urhajok("src/hu/flow/urhajok.txt");
+
+
+        for (Urhajo i: hangar) {System.out.println(i);}
 
     }
 
     public static List<Urhajo> hangar = new ArrayList<>();
 
-    public static void urhajok(String path) throws IOException {
+    public static void urhajok(String path) {
 
         File file = new File(path);
-        FileReader fileReader = new FileReader(file);
+        FileReader fileReader = null;
+        try {
+            fileReader = new FileReader(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         BufferedReader reader = new BufferedReader(fileReader);
-        String line = reader.readLine();
 
+
+        String line = null;
+        try {
+            line = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         while (line != null) {
             List<String> list;
             list = Arrays.asList(line.split(" ", 2));
@@ -46,9 +56,17 @@ public class StarWars {
                 hangar.add(second);
 
             }
-            line = reader.readLine();
+            try {
+                line = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        reader.close();
+        try {
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
