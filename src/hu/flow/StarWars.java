@@ -8,21 +8,18 @@ import java.util.Scanner;
 
 public class StarWars {
 
-    public static void main(String[] args) throws IOException {
-        StarWars.urhajok("src/hu/flow/urhajok.txt");
-        for (Urhajo i: hangar
-             ) {
-            System.out.println(i);
+    public static void main(String[] args){
 
+        try {
+            StarWars.urhajok("src/hu/flow/urhajok.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Hiba az adatok beolvasás közben.");
         }
 
-        addUrhajo();
 
-        for (Urhajo i: hangar
-        ) {
-            System.out.println(i);
+        for (Urhajo i: hangar) {System.out.println(i);}
 
-        }
 
     }
 
@@ -31,10 +28,10 @@ public class StarWars {
     public static void urhajok(String path) throws IOException {
 
         File file = new File(path);
-        FileReader fileReader = new FileReader(file);
+        FileReader fileReader = null;
+        fileReader = new FileReader(file);
         BufferedReader reader = new BufferedReader(fileReader);
         String line = reader.readLine();
-
         int counter = 0;
 
         while (line != null) {
@@ -56,7 +53,9 @@ public class StarWars {
                     }
                     hangar.add(second);
                 }else{
-                    throw new HulyeVagyException("nem megfelelo adatok a textben a " + counter + "-dik sorban");
+
+                    throw new HulyeVagyException("nem megfelelo adatok a text " + counter + ".-dik sorában");
+
                 }
             } catch (HulyeVagyException e) {
                 e.printStackTrace();
@@ -64,7 +63,6 @@ public class StarWars {
                 line = reader.readLine();
 
         }
-        reader.close();
     }
 
     public static void addUrhajo() {

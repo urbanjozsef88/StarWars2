@@ -6,4 +6,7 @@ XWing 8
 XWing 9
 cica
 XWing 10
+kutya
 MilleniumFalcon 5
+MilleniumFalcon 12
+XWing 9
