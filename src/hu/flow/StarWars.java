@@ -26,7 +26,10 @@ public class StarWars {
         BufferedReader reader = new BufferedReader(fileReader);
         String line = reader.readLine();
 
+        int counter = 0;
+
         while (line != null) {
+            counter++;
             List<String> list;
             list = Arrays.asList(line.split(" ", 2));
             try {
@@ -44,7 +47,7 @@ public class StarWars {
                     }
                     hangar.add(second);
                 }else{
-                    throw new HulyeVagyException("hulyeseget irtal a textbe");
+                    throw new HulyeVagyException("nem megfelelo adatok a textben" + counter + "-dik sorban");
                 }
             } catch (HulyeVagyException e) {
                 e.printStackTrace();
