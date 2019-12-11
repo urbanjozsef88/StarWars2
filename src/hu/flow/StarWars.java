@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class StarWars {
 
@@ -11,6 +12,14 @@ public class StarWars {
         StarWars.urhajok("src/hu/flow/urhajok.txt");
         for (Urhajo i: hangar
              ) {
+            System.out.println(i);
+
+        }
+
+        addUrhajo();
+
+        for (Urhajo i: hangar
+        ) {
             System.out.println(i);
 
         }
@@ -47,7 +56,7 @@ public class StarWars {
                     }
                     hangar.add(second);
                 }else{
-                    throw new HulyeVagyException("nem megfelelo adatok a textben" + counter + "-dik sorban");
+                    throw new HulyeVagyException("nem megfelelo adatok a textben a " + counter + "-dik sorban");
                 }
             } catch (HulyeVagyException e) {
                 e.printStackTrace();
@@ -58,7 +67,37 @@ public class StarWars {
         reader.close();
     }
 
+    public static void addUrhajo() {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Szeretnel urhajot hozzaadni? (y/n)");
 
+        String valasz = scn.nextLine();
+        if ( valasz.toLowerCase().equals("y") ) {
+            String urhajo = scn.nextLine();
+            List<String> type = Arrays.asList(urhajo.split(" ", 2));
+            if (type.get(0).equals("MilleniumFalcon")) {
+                MilleniumFalcon mf = new MilleniumFalcon();
+                for (int i = 0; i < Integer.parseInt(type.get(1)); i++) {
+                    mf.hiperUgras();
+                }
+                hangar.add(mf);
+                System.out.println(mf.milyenGyors() + "sebessegu MilleniumFalcon hozzaadva.");
+            } else if (type.get(0).equals("XWing")) {
+                XWing xw = new XWing();
+                for (int i = 0; i < Integer.parseInt(type.get(1)); i++) {
+                    xw.hiperUgras();
+                }
+                hangar.add(xw);
+                System.out.println("XWing hozzaadva" + xw.milyenGyors() + "sebessegu XWing hozzaadva.");
+            } else {
+                System.out.println("Ezt igy nem ertem");
+                addUrhajo();
+            }
+        }else {
+            System.out.println("Ezt igy nem ertem");
+        }
+        addUrhajo();
+    }
 
 }
 
